@@ -1,0 +1,80 @@
+header {
+width: 100%;
+background: white;
+position: fixed;
+z-index: 999;
+ top: 0;
+}
+
+header>div {
+
+}
+
+header .nav-bar{
+width: 100%;
+  text-align: center;
+  
+}
+
+header .nav-bar ul{
+width: 100%;
+justify-content: center;
+height: 0;
+transition: all 0.5s ease;
+display: flex;
+  
+}
+
+header .nav-bar ul li a  {
+text-decoration: none;
+  padding: 1rem;
+  color: black;
+  float: left;
+  border-radius: 10%;
+  position: relative;
+  top: -56px;
+  cursor: pointer;
+}
+
+header .nav-bar ul li a:hover, header .nav-bar ul li a:active{
+color: #00006c;
+  background: rgba(0,0,0,0.1);
+ }
+
+.menu-arrow {
+  height: 15px;
+  background: rgba(255,255,255, 0.5);
+  border-radius: 0% 0% 100% 100%;
+  padding: 0 2rem;
+  position: absolute;
+}
+
+
+.container-arrow {
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  display: flex;
+  justify-content: center;
+}
+
+
+header:hover .nav-bar ul {
+display: flex;
+height: 56px;
+  position: relative;
+}
+
+header:hover .nav-bar ul li a{
+  top: 0;
+  transition: all 0.5s ease;
+}
+
+header:hover .menu-arrow {
+  background: rgba(255,255,255, 1);
+}
+
+.spacer {
+  width: 1rem;
+}

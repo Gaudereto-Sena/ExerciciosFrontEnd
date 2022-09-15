@@ -1,0 +1,363 @@
+@import url("fonts.css");
+@import url('header.css');
+@import url('main.css');
+@import url('footer.css');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style-type: none;
+  font-family: montserrat-reg, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  list-style: none;
+  height:100vh;
+  background-color: #3F3F3F;;
+  
+}
+
+body{
+  background-color: #FFFFFF;
+  
+  margin-top: 25px;
+}
+
+ul{
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+p {
+  margin-bottom: 0;
+}
+
+@keyframes hoverPulse {
+  0% {
+   transform: scale3d(1, 1, 1);
+  }
+
+  50% {
+   transform: scale3d(1.2, 1.2, 1.2);
+  }
+  100% {
+  transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes hoverShake {
+  0%, 100% {
+  transform: translate3d(0, 0, 0);
+  }
+  20%, 60%{
+  transform: translate3d(-2px, 0, 0);
+  }
+  40%, 80% {
+  transform: translate3d(2px, 0, 0);
+  }
+}
+
+@keyframes startFlipInY {
+  0% {
+  transform: perspective(300px) rotate3d(0, 1, 0, 0deg);
+  }
+  10% {
+    transform: perspective(300px) rotate3d(0, 1, 0, 8deg);
+  }
+  20% {
+  transform: perspective(300px) rotate3d(0, 1, 0, -7deg);
+  }
+  30% {
+  transform: perspective(300px) rotate3d(0, 1, 0, 6deg);
+  }
+  40% {
+  transform: perspective(300px) rotate3d(0, 1, 0, -5deg);
+  }
+  50% {
+  transform: perspective(300px) rotate3d(0, 1, 0, 4deg);
+  }
+  65% {
+  transform: perspective(300px) rotate3d(0, 1, 0, -3deg);
+  }
+  80% {
+  transform: perspective(300px) rotate3d(0, 1, 0, 2deg);
+  }
+  95% {
+  transform: perspective(300px) rotate3d(0, 1, 0, -1deg);
+  }
+  100% {
+  transform: perspective(300px) rotate3d(0, 1, 0, 0deg);
+  }
+  }
+
+.personalModal .modal-header, .personalModal .modal-footer{
+  background: #3F3F3F;
+  color: white;
+}
+
+/* Responsividade */
+
+@media (max-width: 1399px) {
+  .main-heading {
+    flex-flow: column-reverse;
+  }
+
+  .main-heading-container {
+    width: 100%;
+    max-width: 1280px;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 2rem;
+  }
+
+  .main-heading .main-heading-name {
+    width: 90%;
+    margin-left: 0;
+  }
+
+  .main-heading .main-heading-img {
+    width: 50%;
+    background-color: transparent;
+    
+  }
+
+  .main-heading  .main-heading-contatos {
+    width: 40%;
+    
+    display: flex;
+    
+    flex-flow: column wrap;
+
+    justify-content: center;
+    
+  }
+
+  .main-heading  .main-heading-contatos h3 {
+    padding: 1rem;
+  }
+
+  .main-heading  .main-heading-contatos ul {
+   display: flex;
+   flex-flow: row wrap;
+  }
+  
+  .main-heading  .main-heading-contatos ul li {
+   width: 50%;
+    padding: 1rem;
+  }
+  
+  .main-heading  .main-heading-contatos ul li:first-child {
+   width: 100%;
+    padding-top: 0;
+  }
+
+  .main-body {
+    flex-direction: column;
+    max-width: 100%;
+    margin: 0;
+  }
+  
+  .main-body-container{
+  width: 100%;
+  background-color: #696460
+}
+
+  .main-body-info {
+    width: 100%;
+    flex-direction: row;
+    align-items: flex-start;
+    max-width: 1280px;
+    padding: 1rem 5%;
+  }
+  
+  .main-body-info .content {
+  padding-bottom: 0rem;
+  padding-right: 2rem;
+}
+  
+  .main-body-info .content:last-child {
+  padding-right: 0rem;
+}
+
+  .main-body-info .main-body-info-contatos{
+    display: none;
+  }
+
+  .main-body-content {
+    width: 100%;
+    max-width: 1280px;
+    padding: 0 5%;
+    margin: 0 auto;
+  }
+
+  .footer-container{
+    padding: 1rem 5%;
+  }
+  
+}
+
+@media (max-width: 1199px) {
+
+}
+
+@media (max-width: 991px) {
+  .cv-logo {
+  top: -3.5rem;
+}
+
+.cv-logo-inner {
+  padding: 1rem;
+}
+}
+
+@media (max-width: 767px) {
+
+  header .nav-bar ul {
+    flex-direction: column;
+    top: -224px;
+  }
+  
+header:hover .nav-bar ul {
+  height: 224px;
+  top: 0;
+}
+  
+header .nav-bar ul li, header .nav-bar ul li a  {
+  width: 100%;
+}
+
+ header .nav-bar ul li a {
+  top: -224px;
+  border-radius: 0;
+  }
+  
+  .main-heading-container {
+    flex-direction: column;
+      align-items: center;
+  }
+
+  
+  .main-heading .main-heading-img {
+    width: 100%;
+  }
+  
+    .main-heading-container .main-heading-contatos {
+    width: 100%;
+   align-items: center;
+      text-align: center;
+  }
+  
+  .main-heading  .main-heading-contatos ul li {
+   width: 25%;
+    padding: 1rem;
+  }
+  
+  .main-heading  .main-heading-contatos ul li:first-child {
+   width: 100%;
+    padding-top: 0;
+  }
+
+  .main-heading  .main-heading-contatos ul li a i{
+  padding-right: 1.5rem;
+}
+
+  .main-heading  .main-heading-contatos ul li a:hover i{
+  animation-name: hoverShake;
+  animation-duration: 0.5s;
+}
+
+.main-body-info .content {
+  padding-bottom: 2rem;
+  padding-right: 0rem;
+}
+  
+.main-body-info .content:last-child {
+  padding-bottom: 0rem;
+}
+    
+.footer-container {
+  flex-direction: column-reverse;
+  text-align: center;
+}
+  
+  .footer-container .footer-desenvolvedor, .footer-container .footer-links {
+  width: 100%;
+}
+
+  .footer-container .footer-links ul{
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+}
+
+@media (max-width: 575px) {
+  
+  .main-heading .main-heading-name {
+    width: 90%;
+padding-top: 3rem;
+    
+  }
+  
+    .main-heading .main-heading-name h1{
+    font-size: 2rem;
+   }
+  
+    .main-heading .main-heading-name h2{
+    font-size: 1rem;
+   }
+
+   .main-heading  .main-heading-contatos ul li {
+   width: 100%;
+    padding: 1rem;
+  }
+  
+.main-heading  .main-heading-contatos ul li a {
+  display: flex;
+  justify-content: center;
+}
+
+.main-heading  .main-heading-contatos ul li:nth-child(2) a i{
+  padding-right: 8rem;
+}
+  
+.main-heading  .main-heading-contatos ul li:nth-child(3) a i{
+  padding-right: 7.3rem;
+}
+  
+.main-heading  .main-heading-contatos ul li:nth-child(4) a i{
+  padding-right: 6.5rem;
+}
+  
+.main-heading  .main-heading-contatos ul li:nth-child(5) a i{
+  padding-right: 8.6rem;
+}
+  
+  .main-heading .main-heading-img {
+    width: auto;
+  }
+
+    .main-heading .main-heading-img img{
+    width: 100%;
+  }
+
+    .main-body-info {
+      flex-direction: column;
+    }
+
+    .cv-logo {
+  top: -2.75rem;
+}
+
+.cv-logo-inner {
+  padding: 1rem;
+  font-size: 2rem;
+}
+}
+
+
+
+
+

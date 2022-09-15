@@ -1,0 +1,232 @@
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-topo {
+  background-color: #3F3F3F;
+  padding-top: 4rem;
+}
+
+.main-heading {
+  width: 100%;
+  max-width: 1280px;
+  
+  margin: 0 auto;
+  
+  display: flex;
+  align-items: center;
+}
+
+
+
+.main-heading .main-heading-img {
+  width: 100%;
+  padding: 0.4rem;
+  
+  background-color: #696460;
+  
+  display: flex;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.main-heading .main-heading-img img{
+  border: 2px solid white;
+  border-radius: 100%;
+  max-height:300px;
+  max-width:300px;
+  margin: 0 auto;
+}
+
+.main-heading  .main-heading-contatos {
+  display: none;
+  color: white;
+}
+
+.main-heading  .main-heading-contatos ul ,.main-heading  .main-heading-contatos ul li{
+ width: 100%;
+}
+
+.main-heading  .main-heading-contatos ul li a {
+  text-decoration: none;
+  color: white;
+  white-space: nowrap;
+  transition: all 300ms ease;
+ 
+}
+
+.main-heading  .main-heading-contatos ul li a:hover {
+  color: #FFBA62;
+}
+
+.main-heading  .main-heading-contatos ul li a:hover i {
+  animation-name: hoverPulse;
+  animation-duration: 1s;
+}
+
+.main-heading  .main-heading-contatos ul li a i{
+  font-size: 1.5rem;
+  padding-right: 2rem;
+}
+
+.main-heading .main-heading-name {
+  width: 75%;
+  border: 2px solid white;
+  text-align: center;
+  color: white;
+  padding-top: 4rem;
+  margin-left: 2rem;
+}
+
+.main-heading .main-heading-name h1{
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.main-heading .main-heading-name h2{
+  font-size: 2rem;
+   margin-bottom: 2rem;
+}
+
+.cv-logo {
+ width: 100%;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: -4rem;
+
+}
+
+.cv-logo-inner {
+  padding: 1.5rem;
+   border-radius: 100%;
+  font-size: 3rem;
+  border: 2px solid white;
+    background-color: #3F3F3F;
+}
+
+.main-body {
+  display: flex;
+  gap: 2rem;
+  max-width: 1280px;
+  margin: 0 auto;
+  height: 100%;
+}
+
+.main-body-container{
+  width: 25%;
+  background-color: #706865
+}
+
+.main-body-info {
+  width: 100%;
+  height: 100%;
+  
+  padding: 1rem;
+  padding-top: 2rem;
+  padding-bottom: 5rem;
+  
+  background-color: #696460;
+  
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  color: white;
+ 
+  
+}
+
+.main-body-info .content {
+  width: 100%;
+  padding-bottom: 2rem;
+}
+
+.main-body-info .content h3{
+  width: 100%;
+   font-size: 1.2rem;
+}
+
+.main-body-info .content ul li {
+  width: 100%;
+  list-style: none;
+  color: white;
+  padding-top: 0.5rem;
+}
+
+.main-body-info .content ul li a{
+  color: white;
+  text-decoration: none;
+  transition: all 300ms ease;
+}
+
+.main-body-info .content ul li a:hover{
+   color: #FFBA62;
+}
+
+.main-body-info .content ul li a:hover i{
+  animation-name: hoverShake;
+  animation-duration: 0.5s;
+}
+
+.main-body-info .content ul li a i{
+  padding-right: 2rem;
+}
+
+.main-body-content {
+  width: 75%;
+  float: left;
+  padding-top: 2rem;
+}
+
+.content-principal {
+  width: 100%;
+}
+
+.content-principal h3 {
+  width: 100%;
+  background-color: #706865;
+  color: white;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+.content-principal ul {
+  margin-bottom: 1rem;
+}
+
+.content-principal>p {
+  background-color: #E7E6E2;
+  padding: 0.5rem;
+  padding-bottom: 0;
+  margin-bottom: 0;
+  text-align: justify;
+}
+
+.content-principal>p:last-child {
+  padding-bottom: 0.5rem;
+}
+
+.content-principal ul li {
+  font-weight: bold;
+}
+
+.content-principal ul li ul {
+  display: flex;
+}
+
+.content-principal ul li ul li {
+  font-weight: normal;
+  padding-right: 0.4rem;
+  margin-right: 0.4rem;
+}
+
+.content-principal ul li ul li:first-child {
+  border-right: 1px solid black;
+}
+
+hr {
+  color:white;
+}
+

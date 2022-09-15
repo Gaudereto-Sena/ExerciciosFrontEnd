@@ -1,0 +1,45 @@
+
+footer {
+background-color: #3F3F3F;
+}
+
+.footer-container{
+  max-width: 1280px;
+  
+  margin: 0 auto;
+  
+  display: flex;
+
+  padding: 1rem 0;
+
+
+
+  color: white;
+ 
+}
+
+.footer-container .footer-desenvolvedor, .footer-container .footer-links{
+  width: 50%;
+}
+
+.footer-container .footer-links ul{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.footer-container .footer-links ul li a {
+  color: white;
+  text-decoration: none;
+  transition: color 300ms ease;
+  margin-right: 1.5rem;
+}
+
+.footer-container .footer-links ul li:last-child a{
+  margin-right: 0rem;
+}
+
+.footer-container .footer-links ul li a:hover i {
+  color: #FFBA62;
+  animation-name: hoverPulse;
+  animation-duration: 1s;
+}
