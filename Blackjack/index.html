@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+    <header>
+        <div class="header-balance" id="balance-el">$1000</div>
+        <nav class="header-configuration-menu">
+            <ul>
+                <li>Menu</li>
+                <li>Sound</li>
+                <li>Config</li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="main-bg-start" id="start-bg-el">
+            <h1>BLACKJACK</h1>
+            <button onclick="start()">START PLAYING</button>
+        </div>
+        <div class="main-board">
+
+            <div class="main-board-bet">
+                <!-- <img src="./assets/img/pokerChips.jpg" alt=""> -->
+                <p id="message-el"></p>
+            </div>
+            <div class="main-board-cards">
+                <div class="main-board-cards-dealer card-board">
+                    <h3>Dealer</h3>
+                    <div class="main-board-cards-dealer-points points-container" id="dealer-sum-el">10</div>
+                    <div class="main-board-cards-dealer-hand hand-container" id="cards-dealer-container-el">
+
+                    </div>
+                </div>
+                <div class="main-board-cards-player card-board">
+                    <h3>Player</h3>
+                    <div class="main-board-cards-player-points points-container" id="total-el">21</div>
+                    <div class="main-board-cards-player-hand hand-container" id="cards-container-el">
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="main-board-deck hand-container">
+            </div>
+
+            <div class="main-board-apostas">
+                <h2>aposta</h2>
+                <p id="apostas-el">100</p>
+            </div>
+
+
+        </div>
+        <div class="main-user">
+            <button id="start-btn" onclick="startGame()">APOSTAR</button>
+            <button id="restart-btn" onclick="reiniciar()">REINICIAR</button>
+            <div class="main-user-apostas" id="beat-btn-container">
+                <button onclick="apostar(1)"></button>
+                <button onclick="apostar(10)"></button>
+                <button onclick="apostar(50)"></button>
+            </div>
+            <div class="main-user-cont" id="playing-btn-container">
+                <button onclick="drawCard()">COMPRAR</button>
+                <button onclick="dobrar()">DOBRAR</button>
+                <button onclick="dealer()">MANTER</button>
+                <button id="desistir-btn" onclick="desistir()">DESISTIR</button>
+            </div>
+        </div>
+    </main>
+<div class="game-info">
+    <div id="hand-el"></div>
+    <div id="dealer-hand-el"></div>
+    <div id="playing-container"></div>
+</div>
+    <script src="./assets/js/index.js"></script>
+</body>
+
+</html>
