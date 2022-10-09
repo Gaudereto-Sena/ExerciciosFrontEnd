@@ -148,6 +148,7 @@ main .main-board .main-board-cards {
 .card-board h3 {
     margin-bottom: 1rem;
     font-size: 1.3rem;
+  display: none;
 }
 
 .points-container {
@@ -314,8 +315,8 @@ main .main-user .main-user-apostas button:last-child {
     }
     
     main .main-bg-start h1 {
+      margin-bottom: 150px;
         font-size: 3rem;
-        margin-bottom: 150px;
     }
     
     .points-container {
@@ -351,10 +352,6 @@ main .main-user .main-user-apostas button:last-child {
         flex-flow: column nowrap;
         align-items: center;
         justify-content: flex-end;
-    }
-
-    .card-board h3 {
-        display: none;
     }
 
     .points-container {
@@ -394,10 +391,6 @@ main .main-user .main-user-apostas button:last-child {
 @media (max-height: 850px) {
     main .main-board .main-board-cards {
         height: 85%;
-    }
-
-    .card-board h3 {
-        display: block;
     }
     
 .hand-container img {
@@ -459,16 +452,18 @@ header{
         align-items: flex-end;
     }
     
-    .card-board {
-        width: 50%;
-    }
 
-    .card-board {
+    .card-board { 
+      width: 50%;
         flex-flow: column nowrap;
         align-items: center;
         justify-content: flex-end;
     }
-
+  
+ .card-board h3 {
+        display: block;
+    }
+  
     main .main-board .main-board-cards .main-board-cards-dealer {
         order: 2;
     }
@@ -491,4 +486,13 @@ header{
     main .main-user {
       height: 20%;
     }
+}
+
+@media (max-height: 380px) and (min-width: 500px) {
+      .hand-container img {
+        height: 100px;
+    }
+  main .main-user #desistir-btn, main .main-user #start-btn {
+    width: 70px;
+  }
 }
