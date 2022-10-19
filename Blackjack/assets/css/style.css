@@ -84,6 +84,15 @@ main .main-bg-start h1 {
 
     color: gold;
 }
+main .main-bg-start h2 {
+    width: 100%;
+    margin-bottom: 50px;
+
+    font-size: 3rem;
+    text-align: center;
+
+    color: gold;
+}
 
 main .main-bg-start button {
     width: 400px;
@@ -495,4 +504,22 @@ header{
   main .main-user #desistir-btn, main .main-user #start-btn {
     width: 70px;
   }
+}
+
+form {
+    color: white;
+    margin-top: 30px;
+}
+
+#players-opt {
+width: 200px;
+height: 30px;
+
+text-align: center;
+
+background: #d0c9b8;
+color: black;
+border: none;
+border-radius: 10px;
+
 }

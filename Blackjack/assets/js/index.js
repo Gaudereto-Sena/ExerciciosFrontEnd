@@ -6,12 +6,9 @@ let hand = [];
 let dealerHand = [];
 let handSum = 0;
 let dealerHandSum = 0;
-
-let ace = "Ás";
-let jack = "J";
-let queen = "Q";
-let king = "K";
-let cards = [ace, 2, 3, 4, 5, 6, 7, 8, 9, 10, jack, queen, king]
+let player = ""
+let playerId = ""
+let playerObj = {}
 
 let balance = 100;
 let aposta = 0;
@@ -28,28 +25,100 @@ let isAcesFound = false;
 let isDoubleTurn = false;
 
 let message = "";
-let startBgEl = document.getElementById("start-bg-el")
-let messageEl = document.getElementById("message-el");
-let totalEl = document.getElementById("total-el");
-let handEl = document.querySelector("#hand-el");
-let balanceEl = document.getElementById("balance-el");
-let apostasEl = document.getElementById("apostas-el");
-let dealerHandEl = document.getElementById("dealer-hand-el");
-let dealerSumEl = document.getElementById("dealer-sum-el");
-let cardsContainerEl = document.getElementById("cards-container-el");
-let cardsDealerContainerEl = document.getElementById("cards-dealer-container-el")
 
-let playingContainerEl = document.getElementById("playing-container");
-let playingBtnContainerEl = document.getElementById("playing-btn-container");
-let restartBtnContainerEl = document.getElementById("restart-btn-container");
-let beatBtnContainerEl = document.getElementById("beat-btn-container");
-let startBtnEl = document.getElementById("start-btn");
-let restartBtnEl = document.getElementById("restart-btn");
-let desistirBtnEl = document.getElementById("desistir-btn");
+const ace = "Ás";
+const jack = "J";
+const queen = "Q";
+const king = "K";
+const cards = [ace, 2, 3, 4, 5, 6, 7, 8, 9, 10, jack, queen, king]
 
 
+const startBgEl = document.getElementById("start-bg-el")
+const messageEl = document.getElementById("message-el");
+const totalEl = document.getElementById("total-el");
+const handEl = document.querySelector("#hand-el");
+const balanceEl = document.getElementById("balance-el");
+const apostasEl = document.getElementById("apostas-el");
+const dealerHandEl = document.getElementById("dealer-hand-el");
+const dealerSumEl = document.getElementById("dealer-sum-el");
+const cardsContainerEl = document.getElementById("cards-container-el");
+const cardsDealerContainerEl = document.getElementById("cards-dealer-container-el")
+
+const playingContainerEl = document.getElementById("playing-container");
+const playingBtnContainerEl = document.getElementById("playing-btn-container");
+const restartBtnContainerEl = document.getElementById("restart-btn-container");
+const beatBtnContainerEl = document.getElementById("beat-btn-container");
+const startBtnEl = document.getElementById("start-btn");
+const restartBtnEl = document.getElementById("restart-btn");
+const desistirBtnEl = document.getElementById("desistir-btn");
+const startBtn = document.getElementById("start-btn");
+const playersForm = document.getElementById("players-form")
+const playersOpt = document.getElementById("players-opt")
+
+
+let usersLocalData = JSON.parse(localStorage.getItem("players"));
+
+let Players = class {
+  constructor(id, nome, balance) {
+    this.id = id;
+    this.player = nome;
+    this.balance = balance;
+  }
+}
+
+startBtn.addEventListener("click", function () {
+  let playerSelectedId = document.getElementById("players-opt").value;
+  let newUserId = `id${usersLocalData.length}`;
+
+  if (playerSelectedId === "newPlayer") {
+    let playerName = prompt("Qual seu nome?")
+    let newPlayer = new Players(newUserId, playerName, 100);
+
+    playerSelectedId = newUserId;
+    usersLocalData.push(newPlayer)
+    localStorage.setItem("players", JSON.stringify(usersLocalData))
+  }
+
+  for (user of usersLocalData) {
+    if (playerSelectedId === user.id) {
+      playerId = user.id;
+      player = user.player;
+      balance = user.balance;
+      playerObj = user;
+    }
+  }
+
+  
+  updateUserData()
+  startBgEl.style.display = "none";
+  loadPlayers()
+})
+
+function loadPlayers() {
+  let playersList = `<option value="newPlayer">New Player</option>`
+  if (usersLocalData === null) {
+    usersLocalData = [];
+  }
+
+  if (usersLocalData) {
+    let i = 0;
+    for (user of usersLocalData) {
+      if (user != null) {
+        playersList += `<option value="id${i}">${user.player}</option>`;
+        i++
+      } else {
+        usersLocalData.shift;
+      }
+    };
+  }
+
+  playersOpt.innerHTML = playersList
+}
 
 setUp();
+loadPlayers()
+
+
 
 function setUp() {
   /* Reinicia todos os textos e imagens para iniciar um novo jogo */
@@ -107,10 +176,6 @@ var createDeck = function () {
   console.log(deck)
 }
 
-function start() {
-  startBgEl.style.display = "none";
-}
-
 function startGame() {
   if (isPlaying === false && isAlive === true && balance >= aposta && aposta > 0) {
 
@@ -118,7 +183,7 @@ function startGame() {
     isDoubleTurn = true;
 
     balance = balance - aposta;
-    balanceEl.textContent = `${balance}`;
+    updateUserData()
 
     /* restartDecks(); -------------------------------------------*/
     createDeck()
@@ -274,7 +339,7 @@ function sumHand() {
     }
 
   } else {
-    
+
     for (i = 0; i < dealerHand.length; i++) {
       /* Somatorio comum e busca de Ás da mão do dealer */
 
@@ -333,7 +398,7 @@ function dealerPrintHand() {
   cardsDealerContainerEl.innerHTML = ""
   /* limpa o container de img das cartas do dealer */
 
-  for (i = 0; i < dealerHand.length; i ++) {
+  for (i = 0; i < dealerHand.length; i++) {
     printCards(dealerHand[i].valor, dealerHand[i].naipe)
   }
   /* printa as cartas compradas pelo dealer */
@@ -370,6 +435,19 @@ function dividir() {
   hand.splice(2, 2)
 
   /* codigo a ser implementado. Quando o jogador comprar duas cartas ele pode dividir sua mão em duas apostas separadas e jogar com as duas */
+}
+
+function updateUserData() {
+  playerObj.balance = balance;
+    
+  for (user of usersLocalData) {
+    if (user === playerObj) {
+      user.balance = balance;
+    }
+  }
+
+  localStorage.setItem("players", JSON.stringify(usersLocalData));
+  balanceEl.textContent = `${balance}`;
 }
 
 function apostar(n = number) {
@@ -519,6 +597,7 @@ function loss() {
     message = `Você perdeu $${moneyLost}! `;
   }
   console.log("perdeu")
+  updateUserData()
   endGameFunction();
 }
 
@@ -539,6 +618,7 @@ function win() {
     message = `Você Ganhou $${reward}!`;
   }
 
+  updateUserData()
   console.log("ganhou")
   endGameFunction();
 }
@@ -550,7 +630,6 @@ function endGameFunction() {
   hasGivenUp = false;
   aposta = 0;
   messageEl.textContent = message;
-  balanceEl.textContent = `${balance}`;
   playingBtnContainerEl.style.display = "none"
   restartBtnEl.style.display = "block";
   desistirBtnEl.style.display = "none";
